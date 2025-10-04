@@ -11,7 +11,7 @@ class Level:
     def __init__(self, screen):
         self.screen = screen
         self.start_ticks = pygame.time.get_ticks()
-        self.bg_image = pygame.image.load('./assets/bg_3.png').convert_alpha()
+        self.bg_image = pygame.image.load('./assets/bg-level-01.png').convert_alpha()
         self.bg_image = pygame.transform.scale(self.bg_image, (W_SCREEN, H_SCREEN))
         self.player = Player(W_SCREEN // 2, H_SCREEN // 2)
         self.clock = pygame.time.Clock()
