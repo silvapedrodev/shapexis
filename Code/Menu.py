@@ -7,7 +7,7 @@ from code.Utils import handle_quit
 class Menu:
     def __init__(self, screen):
         self.screen = screen
-        self.bg_image = pygame.image.load('./assets/bg_1.png').convert_alpha()
+        self.bg_image = pygame.image.load('./assets/bg-menu.png').convert_alpha()
         self.area = self.bg_image.get_rect(left=0, top=0)
 
     def run(self):
@@ -16,7 +16,7 @@ class Menu:
             self.screen.blit(self.bg_image, (0, 0))
 
             self.draw_text("Shapexis", size=64, x=W_SCREEN // 2, y=192, bold=True)
-            self.draw_text("Play", size=38, x=W_SCREEN // 2, y=440)
+            self.draw_text("PLAY", size=24, x=W_SCREEN // 2, y=440)
 
             pygame.display.flip()
 
