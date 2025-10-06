@@ -6,13 +6,12 @@ from code.Const import FONT_PRIMARY, C_WHITE, C_YELLOW, C_RED, W_SCREEN, C_CYAN
 class HUD:
     def __init__(self, player):
         self.player = player
-        self.level = 1
         self.font_main = pygame.font.SysFont(FONT_PRIMARY, 12)
         self.font_small = pygame.font.SysFont(FONT_PRIMARY, 10)
         self.elapsed_time = 0
         self.start_ticks = pygame.time.get_ticks()
 
-    def draw(self, screen, fps, elapsed_time):
+    def draw(self, screen, level_name, fps, elapsed_time):
         """Draws HUD information on the screen"""
         # HP Player
         hp_text = self.font_main.render(f"HP: {self.player.hp:02}", True, C_RED)
@@ -23,7 +22,7 @@ class HUD:
         screen.blit(time_text, (90, 5))
 
         # level
-        level_text = self.font_small.render(f"LEVEL: {self.level}", True, C_WHITE)
+        level_text = self.font_small.render(f"LEVEL: {level_name}", True, C_WHITE)
         screen.blit(level_text, (20, 60))
 
         # Score

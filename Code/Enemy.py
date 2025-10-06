@@ -4,7 +4,7 @@ from code.Entity import Entity
 
 
 class Enemy(Entity):
-    def __init__(self, player):
+    def __init__(self, player, speed_multiplier):
         # levels and their spawn probabilities
         levels = [1, 2, 3, 4, 5, 6]
         weights = [30, 25, 20, 15, 9, 2]
@@ -16,7 +16,7 @@ class Enemy(Entity):
         hp = data["hp"]
         damage = data["damage"]
         score = data["score"]
-        speed = data["speed"]
+        base_speed = data["speed"]
 
         x = random.randint(0, W_SCREEN)
         y = random.randint(0, H_SCREEN)
@@ -25,7 +25,7 @@ class Enemy(Entity):
 
         super().__init__(x, y, color, size, hp)
         self.level = level
-        self.speed = speed
+        self.speed = base_speed * speed_multiplier
         self.player = player
         self.damage = damage
         self.score = score
