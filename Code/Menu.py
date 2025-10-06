@@ -1,6 +1,6 @@
 import pygame.image
 
-from code.Const import W_SCREEN, C_YELLOW, FONT_PRIMARY
+from code.Const import W_SCREEN, C_YELLOW, FONT_PRIMARY, H_SCREEN, C_WHITE, TEXT_XL, TEXT_SM
 from code.Utils import handle_quit
 
 
@@ -10,25 +10,44 @@ class Menu:
         self.bg_image = pygame.image.load('./assets/bg-menu.png').convert_alpha()
         self.area = self.bg_image.get_rect(left=0, top=0)
 
+        self.options = ["PLAY", "SKINS", "SCORE"]
+        self.selected_index = 0
+
     def run(self):
 
         while True:
             self.screen.blit(self.bg_image, (0, 0))
 
-            self.draw_text("Shapexis", size=64, x=W_SCREEN // 2, y=192, bold=True)
-            self.draw_text("PLAY", size=24, x=W_SCREEN // 2, y=440)
+            self.draw_text("Shapexis", size=TEXT_XL, x=W_SCREEN // 2, y=192, bold=True)
+
+            # Draw options
+            start_y = H_SCREEN - 120
+            for i, option in enumerate(self.options):
+                y_pos = start_y + i * 40
+                color = C_YELLOW if i == self.selected_index else C_WHITE
+                display_text = f"-{option}-" if i == self.selected_index else option
+                self.draw_text(display_text, size=TEXT_SM, x=W_SCREEN // 2, y=y_pos, color=color)
 
             pygame.display.flip()
 
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    handle_quit(event)
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_SPACE:
-                        return "level"
+                handle_quit(event)
 
-    def draw_text(self, text, size, x, y, bold=False):
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_DOWN:
+                        self.selected_index = (self.selected_index + 1) % len(self.options)
+                    elif event.key == pygame.K_UP:
+                        self.selected_index = (self.selected_index - 1) % len(self.options)
+                    elif event.key == pygame.K_RETURN:
+                        if self.selected_index == 0:
+                            return "level"
+                        elif self.selected_index == 1:
+                            print('SKIN')
+                        elif self.selected_index == 2:
+                            print("SCORE")
+
+    def draw_text(self, text, size, x, y, bold=False, color=C_YELLOW):
         font = pygame.font.SysFont(FONT_PRIMARY, size, bold=bold)
-        text_surface = font.render(text, True, C_YELLOW)
+        text_surface = font.render(text, True, color)
         text_rect = text_surface.get_rect(center=(x, y))
         self.screen.blit(text_surface, text_rect)
