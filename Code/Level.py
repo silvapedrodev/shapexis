@@ -2,10 +2,10 @@ import os.path
 
 import pygame
 
-from code.Enemy import Enemy
-from code.HUD import HUD
-from code.Utils import handle_quit
-from code.Const import W_SCREEN, H_SCREEN, PLAYER_HIT, LEVEL_DURATION
+from Code.Enemy import Enemy
+from Code.HUD import HUD
+from Code.Utils import handle_quit
+from Code.Const import W_SCREEN, H_SCREEN, PLAYER_HIT, LEVEL_DURATION
 
 
 class Level:

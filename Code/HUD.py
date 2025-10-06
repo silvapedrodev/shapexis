@@ -1,13 +1,13 @@
 import pygame.font
 
-from code.Const import FONT_PRIMARY, C_WHITE, C_YELLOW, C_RED, W_SCREEN, C_CYAN
+from Code.Const import FONT_PRIMARY, C_WHITE, C_YELLOW, C_RED, W_SCREEN, C_CYAN
 
 
 class HUD:
     def __init__(self, player):
         self.player = player
-        self.font_main = pygame.font.SysFont(FONT_PRIMARY, 12)
-        self.font_small = pygame.font.SysFont(FONT_PRIMARY, 10)
+        self.font_main = pygame.font.Font(FONT_PRIMARY, 12)
+        self.font_small = pygame.font.Font(FONT_PRIMARY, 10)
         self.elapsed_time = 0
         self.start_ticks = pygame.time.get_ticks()
 

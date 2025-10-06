@@ -1,6 +1,6 @@
 import math
-from code.Entity import Entity
-from code.Const import W_SCREEN, H_SCREEN, SPEED_SHOOT, SIZE_SHOOT, C_YELLOW
+from Code.Entity import Entity
+from Code.Const import W_SCREEN, H_SCREEN, SPEED_SHOOT, SIZE_SHOOT, C_YELLOW
 
 
 class Shoot(Entity):

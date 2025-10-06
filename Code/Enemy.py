@@ -1,6 +1,6 @@
 import random, math
-from code.Const import W_SCREEN, H_SCREEN, ENEMY_LEVELS, ENEMY_COLORS
-from code.Entity import Entity
+from Code.Const import W_SCREEN, H_SCREEN, ENEMY_LEVELS, ENEMY_COLORS
+from Code.Entity import Entity
 
 
 class Enemy(Entity):

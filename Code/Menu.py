@@ -1,7 +1,8 @@
 import pygame.image
 
-from code.Const import W_SCREEN, C_YELLOW, FONT_PRIMARY, H_SCREEN, C_WHITE, TEXT_XL, TEXT_SM
-from code.Utils import handle_quit
+from Code.Const import W_SCREEN, C_YELLOW, FONT_PRIMARY, H_SCREEN, C_WHITE, TEXT_XL, TEXT_SM
+
+from Code.Utils import handle_quit
 
 
 class Menu:
@@ -18,7 +19,7 @@ class Menu:
         while True:
             self.screen.blit(self.bg_image, (0, 0))
 
-            self.draw_text("Shapexis", size=TEXT_XL, x=W_SCREEN // 2, y=192, bold=True)
+            self.draw_text("Shapexis", size=TEXT_XL, x=W_SCREEN // 2, y=192)
 
             # Draw options
             start_y = H_SCREEN - 120
@@ -46,8 +47,8 @@ class Menu:
                         elif self.selected_index == 2:
                             print("SCORE")
 
-    def draw_text(self, text, size, x, y, bold=False, color=C_YELLOW):
-        font = pygame.font.SysFont(FONT_PRIMARY, size, bold=bold)
+    def draw_text(self, text, size, x, y, color=C_YELLOW):
+        font = pygame.font.Font(FONT_PRIMARY, size)
         text_surface = font.render(text, True, color)
         text_rect = text_surface.get_rect(center=(x, y))
         self.screen.blit(text_surface, text_rect)

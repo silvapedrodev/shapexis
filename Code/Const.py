@@ -25,7 +25,7 @@ ENEMY_LEVELS = {
 }
 
 # F
-FONT_PRIMARY = "Pixeled Regular"
+FONT_PRIMARY = "./assets/fonts/Pixeled.ttf"
 
 # L
 LEVEL_DURATION = 60000  # 1s

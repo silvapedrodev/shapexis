@@ -1,5 +1,5 @@
-from code.Level import Level
-from code.Const import ENEMY_SPAWN, ENEMY_SPAWN_DECAY_RATE, SPEED_ENEMY_MULTIPLIER
+from Code.Level import Level
+from Code.Const import ENEMY_SPAWN, ENEMY_SPAWN_DECAY_RATE, SPEED_ENEMY_MULTIPLIER
 
 
 class LevelFactory:
