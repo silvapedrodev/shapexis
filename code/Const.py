@@ -31,7 +31,7 @@ FONT_PRIMARY = "./assets/fonts/Pixeled.ttf"
 FONT_SECONDARY = "./assets/fonts/Bender.otf"
 
 # L
-LEVEL_DURATION = 60000  # 1s
+LEVEL_DURATION = 45000  # 45s
 
 # M
 MAX_LEVELS = 3
