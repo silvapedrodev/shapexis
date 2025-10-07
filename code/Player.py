@@ -11,28 +11,27 @@ from code.Const import (W_SCREEN,
                         PLAYER_HP)
 from code.Entity import Entity
 from code.Shoot import Shoot
+from code.Data_Skins import SKINS
 
 
 class Player(Entity):
-    def __init__(self, x, y):
+    def __init__(self, x, y, skin_name="Default"):
         super().__init__(x, y, C_PURPLE, SIZE_PLAYER, PLAYER_HP)
         self.speed = SPEED_PLAYER
         self.shoots = []
         self.aim_x = self.rect.centerx
         self.aim_y = self.rect.centery
 
-        self.rect = pygame.Rect(x, y, 40, 40)
+        self.rect = pygame.Rect(x, y, SIZE_PLAYER, SIZE_PLAYER)
         self.hp = PLAYER_HP
-        self.score = 0  # começa em 0
+        self.score = 0
+        self.skin_name = skin_name
 
-        """
-            # add skins
-            self.image = pygame.image.load("assets/player.png").convert_alpha()
-            self.image = pygame.transform.scale(self.image, (40, 40))
-    
-            # atualiza rect baseado na imagem
-            self.rect = self.image.get_rect(center=(x, y))
-        """
+        # set skin
+        skin_path = SKINS[skin_name]["path"]
+        self.image = pygame.image.load(skin_path).convert_alpha()
+        self.image = pygame.transform.scale(self.image, (SIZE_PLAYER, SIZE_PLAYER))
+        self.rect = self.image.get_rect(center=(x, y))
 
     def move(self):
         keys = pygame.key.get_pressed()
@@ -59,9 +58,7 @@ class Player(Entity):
         self.shoots = [s for s in self.shoots if not s.off_screen()]
 
     def draw(self, screen):
-        super().draw(screen)
-
-        # screen.blit(self.image, self.rect) add skin
+        screen.blit(self.image, self.rect)
 
         mouse_x, mouse_y = pygame.mouse.get_pos()
         dx = mouse_x - self.rect.centerx

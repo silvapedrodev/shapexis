@@ -40,11 +40,11 @@ class Menu:
                         self.selected_index = (self.selected_index + 1) % len(self.options)
                     elif event.key == pygame.K_UP:
                         self.selected_index = (self.selected_index - 1) % len(self.options)
-                    elif event.key == pygame.K_RETURN or pygame.K_SPACE:
+                    elif event.key in (pygame.K_RETURN, pygame.K_SPACE):
                         if self.selected_index == 0:
                             return "level"
                         elif self.selected_index == 1:
-                            print('SKIN')
+                            return "skin_selector"
                         elif self.selected_index == 2:
                             print("SCORE")
                         elif self.selected_index == 3:
