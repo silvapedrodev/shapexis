@@ -85,11 +85,9 @@ class Level:
 
             # enemy → player collision
             if enemy.rect.colliderect(self.player.rect):
-                self.player.hp -= enemy.damage
+                self.player.take_damage(enemy.damage)
                 enemy.hp = 0
                 enemies_to_remove.append(enemy)
-                if self.player.is_dead():
-                    print("GAME OVER")
 
             for shoot in self.player.shoots[:]:
                 if enemy.rect.colliderect(shoot.rect):

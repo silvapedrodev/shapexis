@@ -81,3 +81,6 @@ class Player(Entity):
 
     def add_score(self, value):
         self.score += value
+
+    def take_damage(self, damage):
+        self.hp = max(0, self.hp - damage)
