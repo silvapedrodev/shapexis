@@ -1,9 +1,9 @@
 import pygame
 
-from Code.Const import W_SCREEN, H_SCREEN, MAX_LEVELS
-from Code.LevelFactory import LevelFactory
-from Code.Menu import Menu
-from Code.Player import Player
+from code.Const import W_SCREEN, H_SCREEN, MAX_LEVELS
+from code.LevelFactory import LevelFactory
+from code.Menu import Menu
+from code.Player import Player
 
 
 class Game:

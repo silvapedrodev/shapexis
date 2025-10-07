@@ -1,6 +1,6 @@
 import pygame
 
-from Code.Const import (W_SCREEN,
+from code.Const import (W_SCREEN,
                         H_SCREEN,
                         SPEED_PLAYER,
                         C_RED,
@@ -9,8 +9,8 @@ from Code.Const import (W_SCREEN,
                         SIZE_PLAYER,
                         C_PURPLE,
                         PLAYER_HP)
-from Code.Entity import Entity
-from Code.Shoot import Shoot
+from code.Entity import Entity
+from code.Shoot import Shoot
 
 
 class Player(Entity):

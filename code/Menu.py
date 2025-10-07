@@ -1,8 +1,9 @@
+import sys
+
 import pygame.image
 
-from Code.Const import W_SCREEN, C_YELLOW, FONT_PRIMARY, H_SCREEN, C_WHITE, TEXT_XL, TEXT_SM
-
-from Code.Utils import handle_quit
+from code.Const import W_SCREEN, C_YELLOW, FONT_PRIMARY, H_SCREEN, C_WHITE, TEXT_XL, TEXT_SM
+from code.Utils import handle_quit
 
 
 class Menu:
@@ -11,7 +12,7 @@ class Menu:
         self.bg_image = pygame.image.load('./assets/bg-menu.png').convert_alpha()
         self.area = self.bg_image.get_rect(left=0, top=0)
 
-        self.options = ["PLAY", "SKINS", "SCORE"]
+        self.options = ["PLAY", "SKINS", "SCORE", "EXIT"]
         self.selected_index = 0
 
     def run(self):
@@ -22,7 +23,7 @@ class Menu:
             self.draw_text("Shapexis", size=TEXT_XL, x=W_SCREEN // 2, y=192)
 
             # Draw options
-            start_y = H_SCREEN - 120
+            start_y = H_SCREEN - 150
             for i, option in enumerate(self.options):
                 y_pos = start_y + i * 40
                 color = C_YELLOW if i == self.selected_index else C_WHITE
@@ -39,13 +40,16 @@ class Menu:
                         self.selected_index = (self.selected_index + 1) % len(self.options)
                     elif event.key == pygame.K_UP:
                         self.selected_index = (self.selected_index - 1) % len(self.options)
-                    elif event.key == pygame.K_RETURN:
+                    elif event.key == pygame.K_RETURN or pygame.K_SPACE:
                         if self.selected_index == 0:
                             return "level"
                         elif self.selected_index == 1:
                             print('SKIN')
                         elif self.selected_index == 2:
                             print("SCORE")
+                        elif self.selected_index == 3:
+                            pygame.quit()
+                            sys.exit()
 
     def draw_text(self, text, size, x, y, color=C_YELLOW):
         font = pygame.font.Font(FONT_PRIMARY, size)

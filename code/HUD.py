@@ -1,6 +1,6 @@
 import pygame.font
 
-from Code.Const import FONT_PRIMARY, C_WHITE, C_YELLOW, C_RED, W_SCREEN, C_CYAN
+from code.Const import FONT_PRIMARY, C_WHITE, C_YELLOW, C_RED, W_SCREEN, C_CYAN
 
 
 class HUD:
