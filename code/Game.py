@@ -1,6 +1,7 @@
 import pygame
 
 from code.Const import W_SCREEN, H_SCREEN, MAX_LEVELS
+from code.GameOverScreen import GameOverScreen
 from code.LevelFactory import LevelFactory
 from code.Menu import Menu
 from code.Player import Player
@@ -35,8 +36,11 @@ class Game:
                 result = self.current_level.run(events)
 
                 if result == "game_over":
-                    self.state = "menu"
-                    player = None
+                    game_over_screen = GameOverScreen(self.screen)
+                    next_state = game_over_screen.run()
+                    if next_state == "menu":
+                        self.state = "menu"
+                        player = None
 
                 elif result == "next_level":
                     next_level_number = self.current_level.level_number + 1

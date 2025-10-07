@@ -1,12 +1,14 @@
 # C
 C_BLUE = 51, 153, 255
 C_CYAN = 0, 255, 255
+C_GRAY = 143, 143, 143
 C_GREEN = 0, 204, 102
 C_GREEN_2 = 139, 224, 200
 C_ORANGE = 255, 44, 3
 C_PURPLE = 102, 0, 204
 C_PURPLE_2 = 109, 46, 219
 C_RED = 255, 51, 51
+C_RED_2 = 136, 8, 8
 C_WHITE = 255, 255, 255
 C_YELLOW = 255, 255, 0
 
@@ -26,6 +28,7 @@ ENEMY_LEVELS = {
 
 # F
 FONT_PRIMARY = "./assets/fonts/Pixeled.ttf"
+FONT_SECONDARY = "./assets/fonts/Bender.otf"
 
 # L
 LEVEL_DURATION = 60000  # 1s
