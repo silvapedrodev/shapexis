@@ -60,6 +60,11 @@ class Level:
 
         for event in events:
             handle_quit(event)
+
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                print("back menu")
+                return "menu"
+
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 self.player.shoot()
 

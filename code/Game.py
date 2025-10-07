@@ -53,6 +53,10 @@ class Game:
                         self.state = "menu"
                         player = None
 
+                elif result == "menu":
+                    self.state = "menu"
+                    player = None
+
             pygame.display.flip()
 
         pygame.quit()
