@@ -3,7 +3,7 @@ from datetime import datetime
 
 from code.Const import W_SCREEN, FONT_PRIMARY, C_WHITE, C_YELLOW
 from code.Score import Score
-from code.Utils import handle_quit
+from code.Utils import handle_quit, draw_background
 
 
 class WinnerScreen:
@@ -21,7 +21,7 @@ class WinnerScreen:
     def run(self):
 
         while self.running:
-            self.screen.fill((0, 0, 0))
+            draw_background(self.screen)
 
             title_surface = self.font_title.render("Congratulations! You Win!", True, C_YELLOW)
             title_rect = title_surface.get_rect(center=(W_SCREEN // 2, 150))

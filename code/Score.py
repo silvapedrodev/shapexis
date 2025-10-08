@@ -1,15 +1,13 @@
 import pygame
-from code.Const import W_SCREEN, FONT_PRIMARY, C_YELLOW, C_WHITE, DATABASE_NAME, BG_MENU
+from code.Const import W_SCREEN, FONT_PRIMARY, C_YELLOW, C_WHITE, DATABASE_NAME
 from code.DBProxy import DBProxy
 from code.Data_Skins import SKINS
-from code.Utils import handle_quit
+from code.Utils import handle_quit, draw_background
 
 
 class Score:
     def __init__(self, screen):
         self.screen = screen
-        self.bg_image: pygame.Surface = pygame.image.load(BG_MENU).convert_alpha()
-        self.area = self.bg_image.get_rect(topleft=(0, 0))
         self.font_title = pygame.font.Font(FONT_PRIMARY, 32)
         self.font_text = pygame.font.Font(FONT_PRIMARY, 14)
         self.running = True
@@ -39,7 +37,7 @@ class Score:
         row_height = 40
 
         while self.running:
-            self.screen.blit(self.bg_image, self.area)
+            draw_background(self.screen)
 
             title_surface = self.font_title.render("TOP SCORES", True, C_YELLOW)
             title_rect = title_surface.get_rect(center=(W_SCREEN // 2, 40))

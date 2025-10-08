@@ -2,7 +2,7 @@ import pygame
 from code.Const import W_SCREEN, H_SCREEN, FONT_PRIMARY, C_WHITE, C_YELLOW, C_GRAY, C_RED
 from code.Data_Skins import SKINS
 from code.Score import check_unlocks, get_top_score
-from code.Utils import handle_quit
+from code.Utils import handle_quit, draw_background
 
 
 class SkinSelector:
@@ -17,8 +17,7 @@ class SkinSelector:
     def run(self):
         while True:
             check_unlocks(get_top_score())
-
-            self.screen.fill((0, 0, 0))
+            draw_background(self.screen)
 
             for event in pygame.event.get():
                 handle_quit(event)

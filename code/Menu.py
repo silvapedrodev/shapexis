@@ -2,24 +2,20 @@ import sys
 
 import pygame.image
 
-from code.Const import W_SCREEN, C_YELLOW, FONT_PRIMARY, H_SCREEN, C_WHITE, TEXT_XL, TEXT_SM, BG_MENU
-from code.Utils import handle_quit
+from code.Const import W_SCREEN, C_YELLOW, FONT_PRIMARY, H_SCREEN, C_WHITE, TEXT_XL, TEXT_SM
+from code.Utils import handle_quit, draw_background
 
 
 class Menu:
     def __init__(self, screen):
         self.screen = screen
-        self.bg_image = pygame.image.load(BG_MENU).convert_alpha()
-        self.area = self.bg_image.get_rect(left=0, top=0)
-
         self.options = ["PLAY", "SKINS", "SCORE", "EXIT"]
         self.selected_index = 0
 
     def run(self):
 
         while True:
-            self.screen.blit(self.bg_image, (0, 0))
-
+            draw_background(self.screen)
             self.draw_text("Shapexis", size=TEXT_XL, x=W_SCREEN // 2, y=192)
 
             # Draw options

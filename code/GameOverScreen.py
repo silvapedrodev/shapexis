@@ -45,7 +45,7 @@ class GameOverScreen:
             self.screen.blit(hint, hint_rect)
 
             message_font = pygame.font.Font(FONT_SECONDARY, 16)
-            max_width = 700  # Limite em pixels para largura do texto
+            max_width = 700
 
             self.render_text_wrapped(
                 f'"{self.message}"',
