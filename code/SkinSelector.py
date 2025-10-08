@@ -1,6 +1,7 @@
 import pygame
 from code.Const import W_SCREEN, H_SCREEN, FONT_PRIMARY, C_WHITE, C_YELLOW, C_GRAY, C_RED
 from code.Data_Skins import SKINS
+from code.Score import check_unlocks, get_top_score
 from code.Utils import handle_quit
 
 
@@ -15,6 +16,8 @@ class SkinSelector:
 
     def run(self):
         while True:
+            check_unlocks(get_top_score())
+
             self.screen.fill((0, 0, 0))
 
             for event in pygame.event.get():
@@ -38,7 +41,6 @@ class SkinSelector:
             rect = image.get_rect(center=(W_SCREEN // 2, H_SCREEN // 2 - 40))
             self.screen.blit(image, rect)
 
-            # skin nane
             name_color = C_YELLOW if data["unlocked"] else C_RED
             name_text = self.font.render(name, True, name_color)
             name_rect = name_text.get_rect(center=(W_SCREEN // 2, H_SCREEN // 2 + 80))

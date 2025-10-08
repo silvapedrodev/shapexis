@@ -2,14 +2,14 @@ import sys
 
 import pygame.image
 
-from code.Const import W_SCREEN, C_YELLOW, FONT_PRIMARY, H_SCREEN, C_WHITE, TEXT_XL, TEXT_SM
+from code.Const import W_SCREEN, C_YELLOW, FONT_PRIMARY, H_SCREEN, C_WHITE, TEXT_XL, TEXT_SM, BG_MENU
 from code.Utils import handle_quit
 
 
 class Menu:
     def __init__(self, screen):
         self.screen = screen
-        self.bg_image = pygame.image.load('./assets/bg-menu.png').convert_alpha()
+        self.bg_image = pygame.image.load(BG_MENU).convert_alpha()
         self.area = self.bg_image.get_rect(left=0, top=0)
 
         self.options = ["PLAY", "SKINS", "SCORE", "EXIT"]
@@ -46,7 +46,7 @@ class Menu:
                         elif self.selected_index == 1:
                             return "skin_selector"
                         elif self.selected_index == 2:
-                            print("SCORE")
+                            return "score"
                         elif self.selected_index == 3:
                             pygame.quit()
                             sys.exit()

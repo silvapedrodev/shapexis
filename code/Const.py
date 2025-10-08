@@ -1,3 +1,6 @@
+# B
+BG_MENU = "./assets/bg-menu.png"
+
 # C
 C_BLUE = 51, 153, 255
 C_CYAN = 0, 255, 255
@@ -11,6 +14,9 @@ C_RED = 255, 51, 51
 C_RED_2 = 136, 8, 8
 C_WHITE = 255, 255, 255
 C_YELLOW = 255, 255, 0
+
+# D
+DATABASE_NAME = "DBScore"
 
 # E
 ENEMY_COLORS = [C_ORANGE, C_RED, C_PURPLE_2, C_BLUE, C_GREEN, C_GREEN_2, C_CYAN]

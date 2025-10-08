@@ -5,7 +5,9 @@ from code.GameOverScreen import GameOverScreen
 from code.LevelFactory import LevelFactory
 from code.Menu import Menu
 from code.Player import Player
+from code.Score import Score
 from code.SkinSelector import SkinSelector
+from code.WinnerScreen import WinnerScreen
 
 
 class Game:
@@ -45,6 +47,12 @@ class Game:
                         self.selected_skin = chosen_skin
                         self.state = "menu"
 
+                elif result == "score":
+                    score_screen = Score(self.screen)
+                    next_state = score_screen.show_ranking()
+                    if next_state == "menu":
+                        self.state = "menu"
+
             elif self.state == "level":
                 result = self.current_level.run(events)
                 if result == "game_over":
@@ -60,9 +68,11 @@ class Game:
                     if next_level:
                         self.current_level = next_level
                     else:
-                        print("🎉 Todos os níveis concluídos!")
-                        self.state = "menu"
-                        player = None
+                        winner = WinnerScreen(self.screen, self.selected_skin, player.score)
+                        next_state = winner.run()
+                        if next_state == "menu":
+                            self.state = "menu"
+                            player = None
 
                 elif result == "menu":
                     self.state = "menu"
