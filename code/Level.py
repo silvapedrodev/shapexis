@@ -9,6 +9,8 @@ from code.Const import W_SCREEN, H_SCREEN, PLAYER_HIT, LEVEL_DURATION
 
 
 class Level:
+    music_started = False
+
     def __init__(self, screen, player, level_number, max_levels, spawn_delay, speed_multiplier):
         self.screen = screen
         self.player = player
@@ -31,6 +33,15 @@ class Level:
             bg_path = './assets/bg-level-01.png'
         self.bg_image = pygame.image.load(bg_path).convert_alpha()
         self.bg_image = pygame.transform.scale(self.bg_image, (W_SCREEN, H_SCREEN))
+
+        # Initialize and play background musi
+        self.play_music()
+
+        # Load sound effects used in the level
+        self.shoot_sound = pygame.mixer.Sound('./assets/audio/shoot.mp3')
+        self.shoot_sound.set_volume(0.5)
+        self.damage_sound = pygame.mixer.Sound('./assets/audio/damage-hit.mp3')
+        self.damage_sound.set_volume(0.5)
 
     def run(self, events):
         self.clock.tick(60)
@@ -66,6 +77,7 @@ class Level:
 
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 self.player.shoot()
+                self.shoot_sound.play()
 
         if self.player.is_dead():
             self.game_over = True
@@ -90,6 +102,7 @@ class Level:
             # enemy → player collision
             if enemy.rect.colliderect(self.player.rect):
                 self.player.take_damage(enemy.damage)
+                self.damage_sound.play()
                 enemy.hp = 0
                 enemies_to_remove.append(enemy)
 
@@ -108,3 +121,20 @@ class Level:
     def draw_enemies(self):
         for enemy in self.enemies:
             enemy.draw(self.screen)
+
+    @staticmethod
+    def play_music():
+        """Starts background music if it is not already playing."""
+        if not Level.music_started:
+            pygame.mixer.init()
+            pygame.mixer.music.load('./assets/audio/level.mp3')
+            pygame.mixer.music.set_volume(0.2)
+            pygame.mixer.music.play(-1)
+            Level.music_started = True
+
+    @staticmethod
+    def stop_music():
+        """Stops the background music and resets the controller."""
+        if Level.music_started:
+            pygame.mixer.music.stop()
+            Level.music_started = False

@@ -14,6 +14,11 @@ class Menu:
 
     def run(self):
 
+        # Load and play menu audio
+        pygame.mixer_music.load('./assets/audio/menu.mp3')
+        pygame.mixer_music.play(-1)
+        pygame.mixer.music.set_volume(0.4)
+
         while True:
             draw_background(self.screen)
             self.draw_text("Shapexis", size=TEXT_XL, x=W_SCREEN // 2, y=192)

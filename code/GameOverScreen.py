@@ -30,6 +30,10 @@ class GameOverScreen:
 
         self.message = random.choice(self.death_messages)
 
+        # Load and play game over screen audio
+        pygame.mixer_music.load('./assets/audio/death_scene.mp3')
+        pygame.mixer_music.play(-1)
+
     def run(self):
         while True:
             self.screen.fill((0, 0, 0))

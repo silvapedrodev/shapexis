@@ -18,6 +18,11 @@ class WinnerScreen:
         self.running = True
         self.score_system = Score(screen)
 
+        # Load and play victory screen audio
+        pygame.mixer_music.load('./assets/audio/winner_scene.mp3')
+        pygame.mixer.music.play(1)
+        pygame.mixer_music.set_volume(0.5)
+
     def run(self):
 
         while self.running:

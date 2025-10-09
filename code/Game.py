@@ -2,6 +2,7 @@ import pygame
 
 from code.Const import W_SCREEN, H_SCREEN, MAX_LEVELS
 from code.GameOverScreen import GameOverScreen
+from code.Level import Level
 from code.LevelFactory import LevelFactory
 from code.Menu import Menu
 from code.Player import Player
@@ -56,6 +57,7 @@ class Game:
             elif self.state == "level":
                 result = self.current_level.run(events)
                 if result == "game_over":
+                    Level.stop_music()
                     game_over_screen = GameOverScreen(self.screen)
                     next_state = game_over_screen.run()
                     if next_state == "menu":
@@ -68,6 +70,7 @@ class Game:
                     if next_level:
                         self.current_level = next_level
                     else:
+                        Level.stop_music()
                         winner = WinnerScreen(self.screen, self.selected_skin, player.score)
                         next_state = winner.run()
                         if next_state == "menu":
@@ -75,6 +78,7 @@ class Game:
                             player = None
 
                 elif result == "menu":
+                    Level.stop_music()
                     self.state = "menu"
                     player = None
 
