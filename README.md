@@ -1,7 +1,7 @@
-<p>
+<h1>
   <img src="./assets/github/logo.png" width="60" style="vertical-align: middle;"/>
-  <span style="font-size:1.8em;"><strong>Shapexis 🟣💥</strong></span>
-</p>
+  <span><strong>Shapexis 🟣💥</strong></span>
+</h1>
 
 A modern 2D arcade-style shooter game built with Python and Pygame, featuring modular object-oriented design, SQLite database integration, and multiple player skins with unlockable content.
 
