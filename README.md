@@ -18,14 +18,14 @@ A modern 2D arcade-style shooter game built with Python and Pygame, featuring mo
 
 ## Table of Contents
 
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [How to Play](#how-to-play)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [Compilation](#compilation)
+- [Features](#features-)
+- [Screenshots](#-screenshots)
+- [Requirements](#-requirements)
+- [Installation](#-installation)
+- [How to Play](#%EF%B8%8F-how-to-play)
+- [Project Structure](#%EF%B8%8F-project-structure)
+- [Contributing](#-contributing)
+- [Compilation](#-compilation)
 
 ## Features 🏆🎨
 
